@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" total="5" passed="5">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Android automation framework" duration-ms="79090" started-at="2011-12-05T16:29:24Z" finished-at="2011-12-05T16:30:43Z">
+    <groups>
+    </groups>
+    <test name="Android automation framework - 1" duration-ms="79090" started-at="2011-12-05T16:29:24Z" finished-at="2011-12-05T16:30:43Z">
+      <class name="test.wordpress.blog.Blog">
+        <test-method status="PASS" signature="beforeTest()" name="beforeTest" is-config="true" duration-ms="37" started-at="2011-12-05T16:29:24Z" finished-at="2011-12-05T16:29:24Z">
+        </test-method>
+        <test-method status="PASS" signature="beforeMethod()" name="beforeMethod" is-config="true" duration-ms="4415" started-at="2011-12-05T16:29:24Z" finished-at="2011-12-05T16:29:29Z">
+        </test-method>
+        <test-method status="PASS" signature="createNewPost()" name="createNewPost" duration-ms="28873" started-at="2011-12-05T16:29:29Z" finished-at="2011-12-05T16:29:58Z">
+        </test-method>
+        <test-method status="PASS" signature="afterMethod()" name="afterMethod" is-config="true" duration-ms="230" started-at="2011-12-05T16:29:58Z" finished-at="2011-12-05T16:29:58Z">
+        </test-method>
+        <test-method status="PASS" signature="beforeMethod()" name="beforeMethod" is-config="true" duration-ms="4012" started-at="2011-12-05T16:29:58Z" finished-at="2011-12-05T16:30:02Z">
+        </test-method>
+        <test-method status="PASS" signature="verifyFormatInNewPost()" name="verifyFormatInNewPost" duration-ms="9475" started-at="2011-12-05T16:30:02Z" finished-at="2011-12-05T16:30:11Z">
+        </test-method>
+        <test-method status="PASS" signature="afterMethod()" name="afterMethod" is-config="true" duration-ms="613" started-at="2011-12-05T16:30:11Z" finished-at="2011-12-05T16:30:12Z">
+        </test-method>
+        <test-method status="PASS" signature="beforeMethod()" name="beforeMethod" is-config="true" duration-ms="4430" started-at="2011-12-05T16:30:12Z" finished-at="2011-12-05T16:30:16Z">
+        </test-method>
+        <test-method status="PASS" signature="verifyPost()" name="verifyPost" duration-ms="6586" started-at="2011-12-05T16:30:16Z" finished-at="2011-12-05T16:30:23Z">
+        </test-method>
+        <test-method status="PASS" signature="afterMethod()" name="afterMethod" is-config="true" duration-ms="371" started-at="2011-12-05T16:30:23Z" finished-at="2011-12-05T16:30:23Z">
+        </test-method>
+        <test-method status="PASS" signature="beforeMethod()" name="beforeMethod" is-config="true" duration-ms="4811" started-at="2011-12-05T16:30:23Z" finished-at="2011-12-05T16:30:28Z">
+        </test-method>
+        <test-method status="PASS" signature="verifymenu()" name="verifymenu" duration-ms="2555" started-at="2011-12-05T16:30:28Z" finished-at="2011-12-05T16:30:31Z">
+        </test-method>
+        <test-method status="PASS" signature="afterMethod()" name="afterMethod" is-config="true" duration-ms="445" started-at="2011-12-05T16:30:31Z" finished-at="2011-12-05T16:30:31Z">
+        </test-method>
+        <test-method status="PASS" signature="beforeMethod()" name="beforeMethod" is-config="true" duration-ms="5186" started-at="2011-12-05T16:30:31Z" finished-at="2011-12-05T16:30:36Z">
+        </test-method>
+        <test-method status="PASS" signature="verifystatusInNewPost()" name="verifystatusInNewPost" duration-ms="6740" started-at="2011-12-05T16:30:36Z" finished-at="2011-12-05T16:30:43Z">
+        </test-method>
+        <test-method status="PASS" signature="afterMethod()" name="afterMethod" is-config="true" duration-ms="322" started-at="2011-12-05T16:30:43Z" finished-at="2011-12-05T16:30:43Z">
+        </test-method>
+        <test-method status="PASS" signature="afterTest()" name="afterTest" is-config="true" duration-ms="1" started-at="2011-12-05T16:30:44Z" finished-at="2011-12-05T16:30:44Z">
+        </test-method>
+      </class>
+    </test>
+  </suite>
+</testng-results>
