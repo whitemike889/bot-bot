@@ -1,0 +1,118 @@
+<meta charset='utf-8'>
+
+  <style type="text/css">
+    body {
+      margin-top: 1.0em;
+      background-color: #FFFFFF;
+      font-family: Helvetica, Arial, FreeSans, san-serif;
+      color: #000000;
+    }
+    #container {
+      margin: 0 auto;
+      width: 700px;
+    }
+    h1 { font-size: 3.8em; color: #5a2f4e; margin-bottom: 3px; }
+    h1 .small { font-size: 0.4em; }
+    h1 a { text-decoration: none }
+    h2 { font-size: 1.5em; color: #5a2f4e; }
+    h3 { text-align: left; color: #5a2f4e; }
+    a { color: #5a2f4e; }
+    .description { font-size: 1.2em; margin-bottom: 30px; margin-top: 30px; font-style: italic;}
+    .download { float: right; }
+    pre { background: #FFFFFF; color: #000000; font-family: Helvetica, Arial, FreeSans, san-serif;}
+    pre.code { font-family: Helvetica, Arial, FreeSans, san-serif; color: #000000; background-color: #eee;font-size: 15px;border: 1px dashed #999999;line-height: 15px;padding: 5px; overflow: auto; width: 95% }
+    hr { border: 0; width: 80%; border-bottom: 1px solid #aaa}
+    .footer { text-align:center; padding-top:30px; font-style: italic; }
+  </style> 
+    <h2>How to install and use bot-bot</h2>
+<hr/>
+<h2>
+	<u><a name="server">Server</a></u>
+</h2>
+<h3>Build the war:</h3>
+<p>To build the bot-bot-server war you need to have maven isntalled in your system. Maven can be downloaded from the ths <a href="http://maven.apache.org/download.html">link</a>.</p>
+<p>Once done run the following command at the root of the bot-bot/server folder</p>
+<blockquote>
+<p>$mvn dist
+</p>
+</blockquote>
+
+<h3>Deploy the war:</h3>
+<p>The war is self contained including the database. So it can be deployed to any of the servlet container like <em>Apache Tomcat</em>, <em>Jboss</em>, etc.</p>
+<p>To deploy the war do the following:</p>
+<ul>
+<li>Create the war as mentioned in the <em>Build the war</em> section.</li>
+<li>Copy the war from the target folder under the bot-bot/server to the webapps folder of your serrvlet container.</li>
+<li>Start your server.</li>
+<li>
+<p>Access the server using the following URL</p>
+<p>http://&lt;localhost or systemip&gt;:&lt;port&gt;/bot-bot-server/index.html</p>
+</li>
+</ul>
+<hr/>
+<h2>
+	<u><a name="recorder">Recorder</a></u>
+</h2>
+<h3>Pre-conditions:</h3>
+<ol>
+<li>Eclipse is installed on the system. Eclipse can be downloaded from the <a href="http://www.eclipse.org/downloads/">link</a></li>
+<li>AspectJ plugin for eclipse has been installed in eclipse. One of the plugin can found <a href="http://www.eclipse.org/ajdt/">here</a></li>
+<li>Source code of the application that needs to be tested is available.</li>
+</ol>
+
+<h3>Installation:</h3>
+<ol>
+<li>Export/Download the bot-bot to your local system. Download instructions are available <a href="download.html">here</a></li>
+<li>Import the source code of the android app that needs to be tested into your eclipse IDE.</li>
+<li>Right click on the imported android app project -&gt; Configure -&gt; Click on "Convert to AspectJ project".</li>
+<li>Once your android project is converted to AspectJ, copy the recorder forlder from the bot-bot source code to the root of the android project.</li>
+<li>Select <b><em>src</em></b> &amp; <b><em>aspects</em></b> folder under the recorder folder , Right click -&gt; Build-path -&gt; Use as source folder.</li>
+<li>After this compile your android app project and run it as an Android application.</li>
+</ol>
+<p><strong>Note: </strong> Currently <em>Recorder</em> will only record user events if the server is running in the same machine where the android simulator is running.</p>
+<hr/>
+<h2>
+	<u><a name="runner">Runner</a></u>
+</h2>
+<h3>Pre-conditions:</h3>
+<ol>
+<li>Android SDK has been installed. More info is available at <a href="http://developer.android.com/sdk/installing.html">link</a></li>
+<li>If you want to use the verifyscreen option in the tool. Please install sikuli on your system. Sikuli can be obtained at: <a href="http://sikuli.org/download.shtml">link</a></li>
+<li>Apache ant needs to be installed.<a href="http://ant.apache.org/">link</a></li>
+</ol>
+
+<h3>Installation:</h3>
+<ol>
+<li>Export the bot-bot from git to your local system.</li>
+<li>Import the source code of the android app that needs to be installed into your eclipse IDE.</li>
+<li>Copy the "server-standalone.jar" from the bot-bot/runner/lib folder to the root of the Android project inside Eclipse IDE.</li>
+<li>
+<p>Open the AndroidManifest.xml file of your Android app and paste the following to it:</p>
+<p><pre class="code"><code>&lt;instrumentation android:targetPackage=&quot;{app package name}&quot;
+    android:name=&quot;com.google.android.testing.nativedriver.server.ServerInstrumentation&quot; /&gt;
+&lt;uses-permission android:name=&quot;android.permission.INTERNET&quot; /&gt;
+&lt;uses-permission android:name=&quot;android.permission.WAKE_LOCK&quot; /&gt;
+&lt;uses-permission android:name=&quot;android.permission.DISABLE_KEYGUARD&quot; /&gt;
+</code></pre>
+Here the {app package name} needs to be replaced with the name of the package as specified in the mainfest element's package attribute.</p>
+</li>
+<li>
+<p>Build and install the android app on to the simulator.</p>
+</li>
+<li>
+<p>Go to the android sdk installation folder and inside it to platform-tools. Then run the following commands:
+    <pre class="code"><code> adb shell am instrument {app_package_name}/com.google.android.testing.nativedriver.server.ServerInstrumentation</code></pre></p>
+<p>Here {app_package_name} needs to be replaced with the name of the package as specified in the mainfest element's package attribute.</p>
+<p><pre class="code"><code>adb forward tcp:54129 tcp:54129</code></pre></p>
+<p>You can confirm that the instrumentation is started by running adb logcat and looking for a line like this:</p>
+<p><pre class="code"><code>I/com.google.android.testing.nativedriver.server.ServerInstrumentation(  273): Jetty started on port 54129</code></pre></p>
+</li>
+<li>
+<p>Package name and initial activity name has to be defined in the BaseClass.java file. (This will be converted to properties file going forward)</p>
+</li>
+<li>
+<p>Run the ant command at the root of the andro_auto_framework directory:</p>
+<p><pre class="code"><code>ant andro-test</code></pre></p>
+<p>This will compile your code and execute your test cases. Currently TestNG , Junit &amp; TestNG-xslt report are generated for the test execution.</p>
+</li>
+</ol>
