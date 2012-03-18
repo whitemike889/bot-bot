@@ -29,26 +29,42 @@
 <h2>
 	<u><a name="server">Server</a></u>
 </h2>
-<h3>Build the war:</h3>
-<p>To build the bot-bot-server war you need to have maven isntalled in your system. Maven can be downloaded from the ths <a href="http://maven.apache.org/download.html">link</a>.</p>
-<p>Once done run the following command at the root of the bot-bot/server folder</p>
-<blockquote>
-<p>$mvn clean install
+<h3>Download</h3>
+
+<p>You can download the latest release Server from the download section mentioned below:</p>
+
+<a href="https://github.com/Imaginea/bot-bot/downloads" target="_blank">https://github.com/Imaginea/bot-bot/downloads</a>
+
+<p>The server folder under the zip contains two files one is a "bot-bot-server.war" and another is "bot-bot-server-standalone.jar". You can read the "Deploy the war" section below on how to deploy the server using these files.
 </p>
-</blockquote>
 
 <h3>Deploy the war:</h3>
-<p>The war is self contained including the database. So it can be deployed to any of the servlet container like <em>Apache Tomcat</em>, <em>Jboss</em>, etc.</p>
-<p>To deploy the war do the following:</p>
+<p>The war is self contained including the database.</p>
+<p>The war can be deployed in two ways:</p>
+<ol>
+<li><p>As a standalone server.</p>
+<p>
+	To deploy the bot-bot server as a standalone server, go to the target folder under the root after running "mvn clean install".
+	You will find a file with name "bot-bot-server-standalone.jar". Run the following command in the command prompt after going to the said folder.
+</p>
+	<pre style="font-family: Helvetica, Arial, FreeSans, san-serif; color: #000000; background-color: #eee;font-size: 15px;border: 1px dashed #999999;line-height: 15px;padding: 5px; overflow: auto; width: 80%"><code>java -jar bot-bot-server-standalone.jar
+</code></pre>
+
+	This will start the standalone bot-bot server. The server can be accessed using the url "http://localhost:8080/index.html".</li>
+
+<li>
+<p> Using a servlet container like <em>Apache Tomcat</em>, <em>Jboss</em>, etc.</p>
+<p>To deploy the war on a servlet container do the following:</p>
 <ul>
 <li>Create the war as mentioned in the <em>Build the war</em> section.</li>
 <li>Copy the war from the target folder under the bot-bot/server to the webapps folder of your serrvlet container.</li>
 <li>Start your server.</li>
-<li>
-<p>Access the server using the following URL</p>
+<li>Access the server using the following URL
 <p>http://&lt;localhost or systemip&gt;:&lt;port&gt;/bot-bot-server/index.html</p>
 </li>
 </ul>
+</li>
+</ol>
 <hr/>
 <h2>
 	<u><a name="recorder">Recorder</a></u>
@@ -67,6 +83,10 @@
 <li>Right click on the imported android app project -&gt; Configure -&gt; Click on "Convert to AspectJ project".</li>
 <li>Once your android project is converted to AspectJ, copy the recorder forlder from the bot-bot source code to the root of the android project.</li>
 <li>Select <b><em>src</em></b> &amp; <b><em>aspects</em></b> folder under the recorder folder , Right click -&gt; Build-path -&gt; Use as source folder.</li>
+<li>Open the AndroidManifest.xml file of your Android app and paste the following at the end of it:
+<pre style="font-family: Helvetica, Arial, FreeSans, san-serif; color: #000000; background-color: #eee;font-size: 15px;border: 1px dashed #999999;line-height: 15px;padding: 5px; overflow: auto; width: 80%"><code>&lt;uses-permission android:name=&quot;android.permission.INTERNET&quot; /&gt;
+</code></pre>
+</li>
 <li>After this compile your android app project and run it as an Android application.</li>
 </ol>
 <p><strong>Note: </strong> Currently <em>Recorder</em> will only record user events if the server is running in the same machine where the android simulator is running.</p>
@@ -108,7 +128,7 @@ Here the {app package name} needs to be replaced with the name of the package as
 <p><pre class="code"><code>I/com.google.android.testing.nativedriver.server.ServerInstrumentation(  273): Jetty started on port 54129</code></pre></p>
 </li>
 <li>
-<p>Package name and initial activity name has to be defined in the BaseClass.java file. (This will be converted to properties file going forward)</p>
+<p>Package name and initial activity name has to be defined in the "default.properties" file under the "resources" folder. This will allow bot-bot to initialize the said activity before each test-method execution.</p>
 </li>
 <li>
 <p>Run the ant command at the root of the andro_auto_framework directory:</p>
