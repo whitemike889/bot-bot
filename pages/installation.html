@@ -9,10 +9,12 @@
     }
     #container {
       margin: 0 auto;
-      width: 700px;
+      width: 900px;
     }
     h1 { font-size: 3.8em; color: #5a2f4e; margin-bottom: 3px; }
+    h1 .medium{ font-size: 0.9em; color: #5a2f4e; margin-bottom: 3px; }
     h1 .small { font-size: 0.4em; }
+    h1 .smallest { font-size: 0.3em; }
     h1 a { text-decoration: none }
     h2 { font-size: 1.5em; color: #5a2f4e; }
     h3 { text-align: left; color: #5a2f4e; }
@@ -23,7 +25,19 @@
     pre.code { font-family: Helvetica, Arial, FreeSans, san-serif; color: #000000; background-color: #eee;font-size: 15px;border: 1px dashed #999999;line-height: 15px;padding: 5px; overflow: auto; width: 95% }
     hr { border: 0; width: 80%; border-bottom: 1px solid #aaa}
     .footer { text-align:center; padding-top:30px; font-style: italic; }
-  </style> 
+  </style>
+<a href="https://github.com/Imaginea/bot-bot"  target="_blank"><img style="position: absolute; top: 0; right: 0; border: 0;height:100px;width:100px;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub" /></a>
+  <div id="container">
+
+    <div class="download">
+      <a href="https://github.com/Imaginea/bot-bot/zipball/master">
+        <img border="0" width="80" src="https://github.com/images/modules/download/zip.png"></a>
+      <a href="https://github.com/Imaginea/bot-bot/tarball/master">
+        <img border="0" width="80" src="https://github.com/images/modules/download/tar.png"></a>
+    </div>
+<h1><span class="medium"><a href="https://github.com/Imaginea/bot-bot">bot-bot</a></span>
+      <span class="small">by <a href="https://github.com/Imaginea">Imaginea</a></span></br><span class="smallest">Selenium like automation framework for native android applications.</span></h1>
+</div></br>
     <h2>How to install and use bot-bot</h2>
 <hr/>
 <h2>
@@ -71,23 +85,27 @@
 </h2>
 <h3>Pre-conditions:</h3>
 <ol>
-<li>Eclipse is installed on the system. Eclipse can be downloaded from the <a href="http://www.eclipse.org/downloads/">link</a></li>
-<li>AspectJ plugin for eclipse has been installed in eclipse. One of the plugin can found <a href="http://www.eclipse.org/ajdt/">here</a></li>
-<li>Source code of the application that needs to be tested is available.</li>
+<li>Android SDK has been installed. More info is available at link <a href="http://developer.android.com/sdk/installing.html">link</a></li>
+<li>Apache ant needs is installed. <a href="http://ant.apache.org/">Click here</a> for more info.</li>
+<li>Install one of the android SDK platform using the Android SDK managers.</li>
+<li>".apk" file of the app that you want to test is available.</li>
 </ol>
 
 <h3>Installation:</h3>
 <ol>
-<li>Export/Download the bot-bot to your local system. Download instructions are available <a href="download.html">here</a></li>
-<li>Import the source code of the android app that needs to be tested into your eclipse IDE.</li>
-<li>Right click on the imported android app project -&gt; Configure -&gt; Click on "Convert to AspectJ project".</li>
-<li>Once your android project is converted to AspectJ, copy the recorder forlder from the bot-bot source code to the root of the android project.</li>
-<li>Select <b><em>src</em></b> &amp; <b><em>aspects</em></b> folder under the recorder folder , Right click -&gt; Build-path -&gt; Use as source folder.</li>
-<li>Open the AndroidManifest.xml file of your Android app and paste the following at the end of it:
-<pre style="font-family: Helvetica, Arial, FreeSans, san-serif; color: #000000; background-color: #eee;font-size: 15px;border: 1px dashed #999999;line-height: 15px;padding: 5px; overflow: auto; width: 80%"><code>&lt;uses-permission android:name=&quot;android.permission.INTERNET&quot; /&gt;
-</code></pre>
-</li>
-<li>After this compile your android app project and run it as an Android application.</li>
+<li>Set the "ANDROID_HOME" enviornment variable to the Android SDK installation directory on your system ex. "/opt/softwares/android-sdk-linux"</li>
+<li>Set the tools and platform-tools folder path to your enviornment PATH. ex. "/opt/softwares/android-sdk-linux/tools" & "/opt/softwares/android-sdk-linux/platform-tools"</li>
+<li>Open *default.properties* file under the recoder folder and replace the values for the following:</li>
+<ul>
+	<li>TEST_APK_FILENAME -> test apk file path.</li>
+	<li>key.store -> path to your keystore file to be used for signing the andorid application. Once you had installed Androdi SDK and configured a simulator this key store file will be automatically generated in your user home directory under *android* fodler.</li>
+	<li>key.store.password -> password of your keystore</li>
+	<li>key.alias -> Alias for you keystore file</li>
+	<li>key.alias.password -> Password of your keystore alias.</br>
+	    In case you want to use the default keystore file please dont change the above keystore related values in the properties file.</li>
+ </ul>
+
+<li>Open command prompt and go to the bot-bot/runner folder.Type the command <b>ant</b>, this will automatically take your apk file, compile it with recorder code, resign it and install it to your emulator or device whichever is running.</li>
 </ol>
 <p><strong>Note: </strong> Currently <em>Recorder</em> will only record user events if the server is running in the same machine where the android simulator is running.</p>
 <hr/>
@@ -96,12 +114,41 @@
 </h2>
 <h3>Pre-conditions:</h3>
 <ol>
-<li>Android SDK has been installed. More info is available at <a href="http://developer.android.com/sdk/installing.html">link</a></li>
-<li>If you want to use the verifyscreen option in the tool. Please install sikuli on your system. Sikuli can be obtained at: <a href="http://sikuli.org/download.shtml">link</a></li>
-<li>Apache ant needs to be installed.<a href="http://ant.apache.org/">link</a></li>
+<li>Android SDK has been installed. More info is available at link <a href="http://developer.android.com/sdk/installing.html">link</a></li>
+<li>Apache ant needs is installed. <a href="http://ant.apache.org/">Click here</a> for more info.</li>
+<li>Install one of the android SDK platform using the Android SDK managers.</li>
+<li>".apk" file of the app that you want to test is available.</li>
 </ol>
 
 <h3>Installation:</h3>
+Runner supports 2 different frameworks at this moment <b>Robotium</b> & <b>NativeDriver</b>. Each have a different setup instructions as mentioned below.
+<h4>Robotium</h4>
+<ol>
+<li>Open the resources/default.properties file and change the following values:</li>
+<ul>
+      <li>FRAMEWORK -> The framework that you want to use for your execution <b><i>robotium</i></b> or <b><i>nativedriver</i></b>. Default is "robotium".</li>
+      <li>TESTCASE_FOLDER -> test-case folder name under *testcase* where you have your test-cases in csv format.</li>
+      <li>TEST_APK_FILENAME -> Apk file path of the application that needs to be tested.</li>
+      <li>APP_PACKAGE -> The app package name.</li>
+      <li>DEFAULT_ACTIVITY -> Default lanch activity.</li>
+      <li>key.store -> path to your keystore file to be used for signing the andorid application. Once you had installed Androdi SDK and configured a simulator this key store file will be automatically generated in your user home directory under *android* fodler.</li>
+      <li>key.store.password -> password of your keystore.</li>
+      <li>key.alias -> Alias for you keystore file.</li>
+      <li>key.alias.password -> Password of your keystore alias.</br>
+	In case you want to use the default keystore file please dont change the above keystore related values in the properties file.</br>
+ 	</br>For finding the values of <i>APP_PACKAGE</i> & <i>DEFAULT_ACTIVITY</i> variables install your application on an emulator and start the application. And then watch the adb logs by typing the command *adb logcat*. And look for the following:</br>
+	<pre style="font-family: Helvetica, Arial, FreeSans, san-serif; color: #000000; background-color: #eee;font-size: 15px;border: 1px dashed #999999;line-height: 15px;padding: 5px; overflow: auto; width: 100%"><code>"Starting activity: Intent { act=android.intent.action.MAIN cat=android.intent.category.LAUNCHER? flg=0x10200000 cmp=com.example.android/.DefaultLauncherActivity"</code></pre>
+	From the above <i>APP_PACKAGE</i> will be *com.example.android* and <i>DEFAULT_ACTIVITY</i> will be *DefaultLauncherActivity*.</li>
+	</ul>
+<li>Set the "ANDROID_HOME" enviornment variable to the Android SDK installation directory on your system ex. "/opt/softwares/android-sdk-linux"</li>
+<li>Set the tools and platform-tools folder path to your enviornment PATH. ex. "/opt/softwares/android-sdk-linux/tools" & "/opt/softwares/android-sdk-linux/platform-tools"</li>
+<li>Create a folder for you test-case csv files and place it under <b><i>testcases</i></b> folder under the root of the <b><i>runner</i></b>.</li>
+<li>From the command-shell go to the <b><i>bot-bot/runner</i></b> folder and type the follwing command.</li>
+<pre style="font-family: Helvetica, Arial, FreeSans, san-serif; color: #000000; background-color: #eee;font-size: 15px;border: 1px dashed #999999;line-height: 15px;padding: 5px; overflow: auto; width: 30%"><code>ant</code></pre>
+Bot-bot will execute your test-cases on the said app and will give you a report of the execution.
+</ol>
+
+<h4>NativeDriver</h4>
 <ol>
 <li>Export the bot-bot from git to your local system.</li>
 <li>Import the source code of the android app that needs to be installed into your eclipse IDE.</li>
@@ -132,7 +179,7 @@ Here the {app package name} needs to be replaced with the name of the package as
 </li>
 <li>
 <p>Run the ant command at the root of the andro_auto_framework directory:</p>
-<p><pre class="code"><code>ant andro-test</code></pre></p>
+<p><pre class="code"><code>ant</code></pre></p>
 <p>This will compile your code and execute your test cases. Currently TestNG , Junit &amp; TestNG-xslt report are generated for the test execution.</p>
 </li>
 </ol>

@@ -10,7 +10,7 @@ body {
 
 #container {
 	margin: 0 auto;
-	width: 700px;
+	width: 900px;
 }
 
 h1 {
@@ -19,9 +19,9 @@ h1 {
 	margin-bottom: 3px;
 }
 
-h1 .small {
-	font-size: 0.4em;
-}
+h1 .medium{ font-size: 0.9em; color: #5a2f4e; margin-bottom: 3px; }
+    h1 .small { font-size: 0.4em; }
+    h1 .smallest { font-size: 0.3em; }
 
 h1 a {
 	text-decoration: none
@@ -70,6 +70,18 @@ hr {
 	font-style: italic;
 }
 </style>
+<a href="https://github.com/Imaginea/bot-bot"  target="_blank"><img style="position: absolute; top: 0; right: 0; border: 0;height:100px;width:100px;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub" /></a>
+  <div id="container">
+
+    <div class="download">
+      <a href="https://github.com/Imaginea/bot-bot/zipball/master">
+        <img border="0" width="80" src="https://github.com/images/modules/download/zip.png"></a>
+      <a href="https://github.com/Imaginea/bot-bot/tarball/master">
+        <img border="0" width="80" src="https://github.com/images/modules/download/tar.png"></a>
+    </div>
+<h1><span class="medium"><a href="https://github.com/Imaginea/bot-bot">bot-bot</a></span>
+      <span class="small">by <a href="https://github.com/Imaginea">Imaginea</a></span></br><span class="smallest">Selenium like automation framework for native android applications.</span></h1>
+</div>
 <h2>Components</h2>
 <p align="justify">
 	<b>bot-bot</b> have following three different components in it:</br>
@@ -111,7 +123,7 @@ It is deployed on a web-servlet supported webserver and currently uses a <i>h2</
 The recording can be done through simulator or using an actual phone.</br></br>
 Recorder will record the basic commands for your user-actions. These steps can then be modified to make an actual test-scenarios by inserting extra commands like <i>asserts,verify,waitfor etc.</i></br>
 Recorder creates a new session with the server whenever the app is launched. Once a session is created further recording commands are sent to the said session.</br>
-Recorder records most of the user action done on the android app. Some of the actions like a back key on the keyboard cannot be recoreded, as it may be over a softkeyboard or a text box.</br>
+Recorder records most of the user action done on the android app. Some of the actions like a back key on the keyboard cannot be recorded, as it may be over a softkeyboard or a text box.</br>
 If you need to add such scenarios, you can modify the recorded scripts to simulate required key-press.</p>
 
 
@@ -121,19 +133,18 @@ If you need to add such scenarios, you can modify the recorded scripts to simula
 </h2>
 <h3>Introduction :</h3>
 <p><strong>Runner</strong> is the component that actually runs your recorded scripts onto your application as a Test-suite.</p>
-<p><i><b>bot-bot</b></i> is based on keyword driven approach and uses "csv" to define its test-cases. The server & recorder records the test-cases as required by the <i><b>runner</b></i>.</p>
+<p><i><b>bot-bot</b></i> is based on keyword driven approach and uses "csv" to define its test-cases. The server & recorder records the test-cases as required by the <i><b>runner</b></i>.
+Runner supports 2 types of frameworks <b>NativeDriver</b> & <b>Robotium</b>. User can choose accordingly from any of the said frameworks by mentioneing the same in the properties configuration.</p>
 <p>Runner internally uses following open-source tools for test execution and reporting:</p>
 <ol>
+<li><a href="http://code.google.com/p/robotium/">Robotium</a></li>
 <li><a href="http://code.google.com/p/nativedriver/">Selenium Nativedriver</a></li>
 <li><a href="http://testng.org/doc/index.html">TestNG</a></li>
-<li><a href="http://sikuli.org/">Sikuli</a></li>
 </ol>
-</br>
 To run your testcases as a test-suite, just place your test-cases(which are in "csv" format) in folders(Used as module) or sub-folders(sub-modules) under a single folder for your app under <i>resources</i> folder of the <i><b>runner</b></i>.</br>
 Also mention your suite folder name and app details inside the default.properties file present in the root of the runner.</br>
 When you run the <i>runner</i> , it will automatically identify the files under folders and sub-folders and accordingly execute them. At the end of the test execution runner will generate html report with your fodlers/modules & sub-folders/submodules defined in the same hierarchy as defined by you.</br>
 More information on the reports can be found <a href="reports.html">here</a>.</p>
-<p><strong>Note:</strong> This tool requires source code of the app that is being automated to be available.
-</p>
+
 
 <hr/>
