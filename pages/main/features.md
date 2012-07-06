@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Home
+title: Features
 permalink: features.html
 heading: Features
 ---

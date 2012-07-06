@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Home
+title: Reports
 permalink: html_reports.html
 heading: Reports
 ---

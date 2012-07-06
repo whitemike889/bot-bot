@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Runner
+title: Data-Driven Tests
 heading: Data-Driven Tests
 permalink: runner_datadriven.html
 ---
