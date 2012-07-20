@@ -35,7 +35,8 @@ Recorder can be integrated to an application using following two methodologies.
 	In case you want to use the default keystore file please dont change the above keystore related values in the properties file.
 
 4. Open command prompt and type the command **ant**, this will automatically take your apk file compile it with recorder code, resign it and install it to your emulator or device whichever is running.
-
+5. Once ant build is successful start using the application as you normally do. User actions will be automatically recorded on the server. You can modify and add any new commands required onto the server session. For creating a new session on the server please kill the app from Settings -> Applications and restart the app.
+ 
 **Note: ** Currently *Recorder* will only record user events if the server is running in the same machine where the android simulator is running.
 
 ---------
