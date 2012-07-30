@@ -4,6 +4,15 @@ title: Releases
 permalink: releases.html
 heading: Releases
 ---
+##V-0.82
+Following features were implemented as part of 0.82 release:
+
+- Support to recorde back/ESC key actions
+- Now users can directly use any Robotium method(having primitive types as arguments) as keywords for test-cases
+- Fixed bug related to failure in integrating recorder when dependent library jar are not available.
+- Bug fixes
+
+----------------------
 
 ##V-0.8
 Following features were implemented as part of 0.8 release:
