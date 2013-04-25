@@ -46,7 +46,7 @@ From the above APP_PACKAGE will be *com.example.android* and DEFAULT_ACTIVITY wi
 4. Set the tools and platform-tools folder path to your enviornment PATH. ex. "/opt/softwares/android-sdk-linux/tools" & "/opt/softwares/android-sdk-linux/platform-tools"
 5. Place your test-case csv files under a folder inside the *testcases* folder in root of the *runner*.
 6. From the command-shell go to the the *bot-bot runner* folder and type the follwing command.
-{% highlight C %}
+{% highlight ruby %}
 ant
 {% endhighlight %}
 </br>
